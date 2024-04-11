@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 
-export const connectDB = () => {
+mongoose.set("strictQuery", false);
+
+export default function connectDB() {
   mongoose
     .connect("mongodb://localhost:27017/bloggers")
     .then(() => {
@@ -9,4 +11,4 @@ export const connectDB = () => {
     .catch((e) => {
       console.log(e);
     });
-};
+}
